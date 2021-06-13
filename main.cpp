@@ -1,6 +1,7 @@
 ﻿#pragma warning(disable : 4996)
 
 #include <iostream>
+
 #include <Windows.h>
 
 #include "main.h"
@@ -8,13 +9,23 @@
 using namespace std;
 
 int main() {
-
+	setlocale(LC_ALL, "Ukrainian");
 	BITMAPFILEHEADER FHeader;
 	BITMAPINFOHEADER IHeader;
 	RGBTRIPLE** Map;
 	
-	FILE *f = fopen("test.bmp", "rb");
-
+	char file_name[255];
+	
+	cout << "Введите путь к картинке:\n ";
+	getline(file_name,cin);
+	
+	
+	FILE *f = fopen(file_name, "rb");
+	if(!file_name) 
+	{
+		    cout << "Не удается открыть файл. (Или файл не существует.)\n" << endl;
+		    exit(1);
+	} else cout << "Успех!";
 	read(Map, FHeader, IHeader, f);
 
 	char** ASCII;
