@@ -30,8 +30,11 @@ void read(RGBTRIPLE**& Map, BITMAPFILEHEADER& BFH, BITMAPINFOHEADER& BIH, FILE *
 }
 
 void Print(char**& ASCII, int Width, int Height)
-{
-	ofstream out("OUT.txt");
+{	
+	string out_file;
+	cout << "Enter way to output: ";
+	cin >> out_file;
+	ofstream out(out_file + ".txt");
 
 	for (int i = 0; i < Height; i++) {
 		for (int j = 0; j < Width; j++) {
@@ -39,5 +42,5 @@ void Print(char**& ASCII, int Width, int Height)
 		}
 		out << endl;
 	}
-
+	
 }

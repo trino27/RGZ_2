@@ -1,5 +1,5 @@
 #pragma once
-
+#include <string>
 #include <Windows.h>
 
 void read(RGBTRIPLE**& Map, BITMAPFILEHEADER &FHeader, BITMAPINFOHEADER &IHeader, FILE *f);

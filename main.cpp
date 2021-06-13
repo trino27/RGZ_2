@@ -1,10 +1,9 @@
 ﻿#pragma warning(disable : 4996)
 
 #include <iostream>
-
 #include <Windows.h>
-
 #include "main.h"
+
 
 using namespace std;
 
@@ -16,16 +15,16 @@ int main() {
 	
 	char file_name[255];
 	
-	cout << "Введите путь к картинке:\n ";
-	getline(file_name,cin);
-	
+	cout << "Введите путь к картинке: ";
+	cin.getline(file_name,255, '\n');
 	
 	FILE *f = fopen(file_name, "rb");
 	if(!file_name) 
 	{
 		    cout << "Не удается открыть файл. (Или файл не существует.)\n" << endl;
 		    exit(1);
-	} else cout << "Успех!";
+	} else cout << "Успех!\n";
+
 	read(Map, FHeader, IHeader, f);
 
 	char** ASCII;
