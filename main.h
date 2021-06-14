@@ -7,3 +7,5 @@ void read(RGBTRIPLE**& Map, BITMAPFILEHEADER &FHeader, BITMAPINFOHEADER &IHeader
 void Convert(RGBTRIPLE**& Map, char**& ASCII, int Width, int Height);
 
 void Print(char**& ASCII, int Width, int Height);
+
+void Print_cmd(char**& ASCII, int Width, int Height);
