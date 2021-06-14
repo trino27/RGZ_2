@@ -48,3 +48,10 @@ void Print(char**& ASCII, int Width, int Height)
 	}
 	
 }
+
+
+//______Made_togeather____
+void Print_cmd(char**& ASCII, int Width, int Height){
+	
+}
+//______Made_togeather____
