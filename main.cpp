@@ -13,25 +13,36 @@ int main() {
 	BITMAPINFOHEADER IHeader;
 	RGBTRIPLE** Map;
 	
-	char file_name[255];
-	
-	cout << "Введите путь к картинке: ";
-	cin.getline(file_name,255, '\n');
-	
-	FILE *f = fopen(file_name, "rb");
-	if(!file_name) 
+	short key = -1;
+	while (key)
 	{
-		    cout << "Не удается открыть файл. (Или файл не существует.)\n" << endl;
-		    exit(1);
-	} else cout << "Успех!\n";
+		char file_name[255];
+		cout << "Введите путь к картинке: ";
+		cin.getline(file_name, 255, '\n');
 
-	read(Map, FHeader, IHeader, f);
+		FILE* f = fopen(file_name, "rb");
+		if (!file_name)
+		{
+			cout << "Не удается открыть файл. (Или файл не существует.)\n" << endl;
+			exit(1);
+		}
+		else cout << "Успех!\n";
 
-	char** ASCII;
+		read(Map, FHeader, IHeader, f);
 
-	Convert(Map, ASCII, IHeader.biWidth, IHeader.biHeight);
+		char** ASCII;
 
-	Print(ASCII, IHeader.biWidth, IHeader.biHeight);
+		Convert(Map, ASCII, IHeader.biWidth, IHeader.biHeight);
+
+		cout << "1 - вывод в фаил" << endl;
+		cout << "2 - вывод в консоль" << endl;
+		cout << "3 - сброс" << endl;
+		cout << "0 - завершение программы" << endl;
+		cout << "->";
+		cin >> key;
+		if (key == 1) Print(ASCII, IHeader.biWidth, IHeader.biHeight);
+		if (key == 2) Print_cmd(ASCII, IHeader.biWidth, IHeader.biHeight);
+	}
 
 	return 0;
 }

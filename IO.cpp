@@ -52,6 +52,11 @@ void Print(char**& ASCII, int Width, int Height)
 
 //______Made_togeather____
 void Print_cmd(char**& ASCII, int Width, int Height){
-	
+	for (int i = 0; i < Height; i++) {
+		for (int j = 0; j < Width; j++) {
+			cout << ASCII[i][j] << ASCII[i][j];
+		}
+		cout << endl;
+	}
 }
 //______Made_togeather____
